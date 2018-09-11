@@ -1,0 +1,58 @@
+<html>
+<!-- id="ng-app" IE<8 -->
+
+<head>
+  <title>Simple example</title>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+
+  <style>
+    .my-drop-zone {
+      border: dotted 3px lightgray;
+    }
+
+    .nv-file-over {
+      border: dotted 3px red;
+    }
+
+    /* Default class applied to drop zones on over */
+    .another-file-over-class {
+      border: dotted 3px green;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container" ng-controller="helloController">
+    <div class="row">
+      <div class="col-12-sm">
+        <div>
+          <h3>Upload File</h3>
+          <br>
+          <!-- Example: nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
+       <div nv-file-drop="" uploader="uploader" options="{ url: '/foo' }">
+        <div nv-file-over="" uploader="uploader" over-class="another-file-over-class" class="well my-drop-zone">
+            Drop Files Here...
+        </div>
+      </div>
+          <p>The current time is {{ currentTime }}</p>
+
+        </div>
+        <div class="upload">
+          <input id="files" ref="files" type="file" multiple @change="preview()">
+
+          <button @click="selectFile()">Submit</button>
+
+        </div>
+      </div>
+       
+      </div>
+    </div>
+</body>
+
+</html>
